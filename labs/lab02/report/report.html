@@ -1,0 +1,143 @@
+<h1 id="цель-работы">1. Цель работы</h1>
+<p>Получение практических навыков работы в консоли с атрибутами файлов,
+закрепление теоретических основ дискреционного разграничения доступа в
+современных системах с открытым кодом на базе ОС Linux.</p>
+<h1 id="выполнение-лабораторной-работы">2. Выполнение лабораторной
+работы</h1>
+<ol type="1">
+<li>Создал учётную запись пользователя guest (использую учётную запись
+администратора) с помощью команды <em>sudo useradd guest</em> (рис.
+1)</li>
+</ol>
+<figure id="fig:001">
+<img src="image/01.png" style="width:70.0%"
+alt="Рис. 1: Создание новой учётной записи" />
+<figcaption aria-hidden="true">Рис. 1: Создание новой учётной
+записи</figcaption>
+</figure>
+<ol start="2" type="1">
+<li>Задал пароль для пользователя guest (использую учётную запись
+администратора): <em>passwd guest.</em> (рис. 2)</li>
+</ol>
+<figure id="fig:002">
+<img src="image/02.png" style="width:70.0%"
+alt="Рис. 2: Введение пароля" />
+<figcaption aria-hidden="true">Рис. 2: Введение пароля</figcaption>
+</figure>
+<ol start="3" type="1">
+<li>Вошёл в систему от имени пользователя <em>guest.</em> (рис. 3)</li>
+</ol>
+<figure id="fig:003">
+<img src="image/03.1.png" style="width:70.0%"
+alt="Рис. 3: Вход в систему" />
+<figcaption aria-hidden="true">Рис. 3: Вход в систему</figcaption>
+</figure>
+<ol start="4" type="1">
+<li>Определил директорию, в которой вы находитесь, командой
+<em>pwd.</em> (рис. 4)</li>
+</ol>
+<figure id="fig:004">
+<img src="image/03.png" style="width:70.0%"
+alt="Рис. 4: Определение директории" />
+<figcaption aria-hidden="true">Рис. 4: Определение
+директории</figcaption>
+</figure>
+<ol start="5" type="1">
+<li>Уточнил имя пользователя командой <em>whoami.</em> (рис. 5)</li>
+</ol>
+<figure id="fig:005">
+<img src="image/04.png" style="width:70.0%"
+alt="Рис. 5: Уточнение имени пользователя" />
+<figcaption aria-hidden="true">Рис. 5: Уточнение имени
+пользователя</figcaption>
+</figure>
+<ol start="6" type="1">
+<li>Уточнил имя пользователя, группу, а также группы, куда входит
+пользователь, командой <em>id.</em> (рис. 6)</li>
+</ol>
+<figure id="fig:006">
+<img src="image/05.png" style="width:70.0%"
+alt="Рис. 6: Вывел данные пользователя" />
+<figcaption aria-hidden="true">Рис. 6: Вывел данные
+пользователя</figcaption>
+</figure>
+<ol start="7" type="1">
+<li><p>Сравнил полученную информацию об имени пользователя с данными,
+выводимыми в приглашении командной строки.</p></li>
+<li><p>Просмотрел файл <em>/etc/passwd командой cat /etc/passwd.</em>
+(рис. 7), (рис. 8) и (рис. 9)</p></li>
+</ol>
+<figure id="fig:007">
+<img src="image/06.png" style="width:70.0%"
+alt="Рис. 7: Посмотр файла /etc/passwd" />
+<figcaption aria-hidden="true">Рис. 7: Посмотр файла
+/etc/passwd</figcaption>
+</figure>
+<figure id="fig:008">
+<img src="image/07.png" style="width:70.0%"
+alt="Рис. 8: Посмотр файла /etc/passwd" />
+<figcaption aria-hidden="true">Рис. 8: Посмотр файла
+/etc/passwd</figcaption>
+</figure>
+<figure id="fig:009">
+<img src="image/08.png" style="width:70.0%"
+alt="Рис. 9: Посмотр файла cat /etc/passwd | grep guest" />
+<figcaption aria-hidden="true">Рис. 9: Посмотр файла cat /etc/passwd |
+grep guest</figcaption>
+</figure>
+<ol start="9" type="1">
+<li>Определил существующие в системе директории командой <em>ls -l
+/home/.</em> (рис. 10)</li>
+</ol>
+<figure id="fig:010">
+<img src="image/09.png" style="width:70.0%"
+alt="Рис. 10: Существующие директории" />
+<figcaption aria-hidden="true">Рис. 10: Существующие
+директории</figcaption>
+</figure>
+<ol start="10" type="1">
+<li>Проверил установленные расширенные атрибуты на поддиректориях,
+находящихся в директории <em>/home</em>, командой <em>lsattr /home.</em>
+(рис. 11)</li>
+</ol>
+<figure id="fig:011">
+<img src="image/10.png" style="width:70.0%"
+alt="Рис. 11: Расширенные атрибуты" />
+<figcaption aria-hidden="true">Рис. 11: Расширенные
+атрибуты</figcaption>
+</figure>
+<ol start="11" type="1">
+<li>Создал в домашней директории поддиректорию <strong>dir1</strong>
+командой <em>mkdir dir1.</em> (рис. 12)</li>
+</ol>
+<figure id="fig:012">
+<img src="image/11.png" style="width:70.0%"
+alt="Рис. 12: Создание директории dir1" />
+<figcaption aria-hidden="true">Рис. 12: Создание директории
+dir1</figcaption>
+</figure>
+<ol start="12" type="1">
+<li>Снял с директории dir1 все атрибуты командой <em>chmod 000
+dir1.</em> (рис. 13)</li>
+</ol>
+<figure id="fig:013">
+<img src="image/12.png" style="width:70.0%"
+alt="Рис. 13: Снятие атрибутов" />
+<figcaption aria-hidden="true">Рис. 13: Снятие атрибутов</figcaption>
+</figure>
+<ol start="13" type="1">
+<li>Попытался создать в директории dir1 файл file1 командой echo
+<em>“test” &gt; /home/guest/dir1/file1, но отказали в доступе.</em>
+(рис. 14)</li>
+</ol>
+<figure id="fig:014">
+<img src="image/13.png" style="width:70.0%"
+alt="Рис. 14: Попытка создания файла file1" />
+<figcaption aria-hidden="true">Рис. 14: Попытка создания файла
+file1</figcaption>
+</figure>
+<h1 id="выводы">Выводы</h1>
+<p>В результате лабораторной работы мной были получены навыки работы с
+атрибутами файлов, закреплены знания о правах доступа в системах на базе
+ОС Linux, а также были выявлены минимальные необходимые права доступа
+для выполнения операций над файлами и директориями.</p>

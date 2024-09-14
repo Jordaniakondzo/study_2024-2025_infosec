@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU" xml:lang="ru-RU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Акондзо Жордани Лади Гаэл" />
+  <title>Шаблон отчёта по лабораторной работе №2</title>
+  <style>
+    html {
+      font-family: PT Serif;
+      font-size: 12pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: PT Mono;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  
+  
+  
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Шаблон отчёта по лабораторной работе №2</h1>
+<p class="subtitle">Дискреционное разграничение прав в Linux. Основные
+атрибуты</p>
+<p class="author">Акондзо Жордани Лади Гаэл</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Содержание</h2>
+
+</nav>
+<h1 id="цель-работы">1. Цель работы</h1>
+<p>Получение практических навыков работы в консоли с атрибутами файлов,
+закрепление теоретических основ дискреционного разграничения доступа в
+современных системах с открытым кодом на базе ОС Linux.</p>
+<h1 id="выполнение-лабораторной-работы">2. Выполнение лабораторной
+работы</h1>
+<ol type="1">
+<li>Создал учётную запись пользователя guest (использую учётную запись
+администратора) с помощью команды <em>sudo useradd guest</em> (рис.
+<span class="citation" data-cites="fig:001">[-@fig:001]</span>)</li>
+</ol>
+<figure id="fig:001">
+<img src="image/01.png" style="width:70.0%"
+alt="Создание новой учётной записи" />
+<figcaption aria-hidden="true">Создание новой учётной
+записи</figcaption>
+</figure>
+<ol start="2" type="1">
+<li>Задал пароль для пользователя guest (использую учётную запись
+администратора): <em>passwd guest.</em> (рис. <span class="citation"
+data-cites="fig:002">[-@fig:002]</span>)</li>
+</ol>
+<figure id="fig:002">
+<img src="image/02.png" style="width:70.0%" alt="Введение пароля" />
+<figcaption aria-hidden="true">Введение пароля</figcaption>
+</figure>
+<ol start="3" type="1">
+<li>Вошёл в систему от имени пользователя <em>guest.</em> (рис. <span
+class="citation" data-cites="fig:003">[-@fig:003]</span>)</li>
+</ol>
+<figure id="fig:003">
+<img src="image/03.1.png" style="width:70.0%" alt="Вход в систему" />
+<figcaption aria-hidden="true">Вход в систему</figcaption>
+</figure>
+<ol start="4" type="1">
+<li>Определил директорию, в которой вы находитесь, командой
+<em>pwd.</em> (рис. <span class="citation"
+data-cites="fig:004">[-@fig:004]</span>)</li>
+</ol>
+<figure id="fig:004">
+<img src="image/03.png" style="width:70.0%"
+alt="Определение директории" />
+<figcaption aria-hidden="true">Определение директории</figcaption>
+</figure>
+<ol start="5" type="1">
+<li>Уточнил имя пользователя командой <em>whoami.</em> (рис. <span
+class="citation" data-cites="fig:005">[-@fig:005]</span>)</li>
+</ol>
+<figure id="fig:005">
+<img src="image/04.png" style="width:70.0%"
+alt="Уточнение имени пользователя" />
+<figcaption aria-hidden="true">Уточнение имени пользователя</figcaption>
+</figure>
+<ol start="6" type="1">
+<li>Уточнил имя пользователя, группу, а также группы, куда входит
+пользователь, командой <em>id.</em> (рис. <span class="citation"
+data-cites="fig:006">[-@fig:006]</span>)</li>
+</ol>
+<figure id="fig:006">
+<img src="image/05.png" style="width:70.0%"
+alt="Вывел данные пользователя" />
+<figcaption aria-hidden="true">Вывел данные пользователя</figcaption>
+</figure>
+<ol start="7" type="1">
+<li><p>Сравнил полученную информацию об имени пользователя с данными,
+выводимыми в приглашении командной строки.</p></li>
+<li><p>Просмотрел файл <em>/etc/passwd командой cat /etc/passwd.</em>
+(рис. <span class="citation" data-cites="fig:007">[-@fig:007]</span>),
+(рис. <span class="citation" data-cites="fig:008">[-@fig:008]</span>) и
+(рис. <span class="citation"
+data-cites="fig:009">[-@fig:009]</span>)</p></li>
+</ol>
+<figure id="fig:007">
+<img src="image/06.png" style="width:70.0%"
+alt="Посмотр файла /etc/passwd" />
+<figcaption aria-hidden="true">Посмотр файла /etc/passwd</figcaption>
+</figure>
+<figure id="fig:008">
+<img src="image/07.png" style="width:70.0%"
+alt="Посмотр файла /etc/passwd" />
+<figcaption aria-hidden="true">Посмотр файла /etc/passwd</figcaption>
+</figure>
+<figure id="fig:009">
+<img src="image/08.png" style="width:70.0%"
+alt="Посмотр файла cat /etc/passwd | grep guest" />
+<figcaption aria-hidden="true">Посмотр файла cat /etc/passwd | grep
+guest</figcaption>
+</figure>
+<ol start="9" type="1">
+<li>Определил существующие в системе директории командой <em>ls -l
+/home/.</em> (рис. <span class="citation"
+data-cites="fig:010">[-@fig:010]</span>)</li>
+</ol>
+<figure id="fig:010">
+<img src="image/09.png" style="width:70.0%"
+alt="Существующие директории" />
+<figcaption aria-hidden="true">Существующие директории</figcaption>
+</figure>
+<ol start="10" type="1">
+<li>Проверил установленные расширенные атрибуты на поддиректориях,
+находящихся в директории <em>/home</em>, командой <em>lsattr /home.</em>
+(рис. <span class="citation"
+data-cites="fig:011">[-@fig:011]</span>)</li>
+</ol>
+<figure id="fig:011">
+<img src="image/10.png" style="width:70.0%"
+alt="Расширенные атрибуты" />
+<figcaption aria-hidden="true">Расширенные атрибуты</figcaption>
+</figure>
+<ol start="11" type="1">
+<li>Создал в домашней директории поддиректорию <strong>dir1</strong>
+командой <em>mkdir dir1.</em> (рис. <span class="citation"
+data-cites="fig:012">[-@fig:012]</span>)</li>
+</ol>
+<figure id="fig:012">
+<img src="image/11.png" style="width:70.0%"
+alt="Создание директории dir1" />
+<figcaption aria-hidden="true">Создание директории dir1</figcaption>
+</figure>
+<ol start="12" type="1">
+<li>Снял с директории dir1 все атрибуты командой <em>chmod 000
+dir1.</em> (рис. <span class="citation"
+data-cites="fig:013">[-@fig:013]</span>)</li>
+</ol>
+<figure id="fig:013">
+<img src="image/12.png" style="width:70.0%" alt="Снятие атрибутов" />
+<figcaption aria-hidden="true">Снятие атрибутов</figcaption>
+</figure>
+<ol start="13" type="1">
+<li>Попытался создать в директории dir1 файл file1 командой echo
+<em>“test” &gt; /home/guest/dir1/file1, но отказали в доступе.</em>
+(рис. <span class="citation"
+data-cites="fig:014">[-@fig:014]</span>)</li>
+</ol>
+<figure id="fig:014">
+<img src="image/13.png" style="width:70.0%"
+alt="Попытка создания файла file1" />
+<figcaption aria-hidden="true">Попытка создания файла file1</figcaption>
+</figure>
+<h1 id="выводы">Выводы</h1>
+<p>В результате лабораторной работы мной были получены навыки работы с
+атрибутами файлов, закреплены знания о правах доступа в системах на базе
+ОС Linux, а также были выявлены минимальные необходимые права доступа
+для выполнения операций над файлами и директориями.</p>
+</body>
+</html>
