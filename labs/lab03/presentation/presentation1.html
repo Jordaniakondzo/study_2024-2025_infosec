@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Акондзо Жордани Лади Гаэл.">
+  <title>My Presentation</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/reset.css">
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/theme/sky.css" id="theme">
+  
+  
+  <span class="citation"
+  data-cites="ignorenonframefalse">@ignorenonframefalse</span>
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">My Presentation</h1>
+  <p class="subtitle">Информационная безопасность</p>
+  <p class="author">Акондзо Жордани Лади Гаэл.</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+  <p class="date">19 сентября 2024</p>
+</section>
+
+<section>
+<section id="информация" class="title-slide slide level1">
+<h1>Информация</h1>
+
+</section>
+<section id="докладчик" class="slide level2">
+<h2>Докладчик</h2>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Акондзо Жордани Лади Гаэл.</li>
+<li>студент 4-го курса группы НКНбд-01-21</li>
+<li>1032215649</li>
+<li>Российский университет дружбы народов</li>
+<li><a href="https://github.com/Jordaniakondzo">GitHub</a></li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section id="вводная-часть" class="title-slide slide level1">
+<h1>Вводная часть</h1>
+
+</section>
+<section id="актуальность" class="slide level2">
+<h2>Актуальность</h2>
+<ul>
+<li>Обеспечение безопасности</li>
+<li>Предотвращение пересечений между пользовательскими аккаунтами</li>
+<li>Совместный доступ к файлам</li>
+</ul>
+</section>
+<section id="цели-и-задачи" class="slide level2">
+<h2>Цели и задачи</h2>
+<ul>
+<li>Закрепление практических навыков работы в консоли с атрибутами
+файлов</li>
+<li>Закрепление теоретических основ дискреционного разграничения доступа
+в современных системах с открытым кодом на базе ОС Linux</li>
+</ul>
+</section>
+<section id="материалы-и-методы" class="slide level2">
+<h2>Материалы и методы</h2>
+<ul>
+<li>Веб-сервис <code>GitHub</code> для работы с репозиториями</li>
+<li>Программа для виртуализации ОС <code>VirtualBox</code></li>
+<li>Процессор <code>pandoc</code> для входного формата Markdown</li>
+<li>Результирующие форматы
+<ul>
+<li><code>pdf</code></li>
+<li><code>docx</code></li>
+</ul></li>
+<li>Автоматизация процесса создания: <code>Makefile</code></li>
+</ul>
+</section></section>
+<section>
+<section id="выполнение-лабораторной-работы"
+class="title-slide slide level1">
+<h1>Выполнение лабораторной работы</h1>
+
+</section>
+<section
+id="в-установленной-операционной-системе-создал-учётную-запись-пользователя-guest-использую-учётную-запись-администратора-useradd-guest-рис.--fig001."
+class="slide level2">
+<h2>В установленной операционной системе создал учётную запись
+пользователя guest (использую учётную запись администратора):
+<em>useradd guest</em> (рис. <span class="citation"
+data-cites="fig:001">[-@fig:001]</span>).</h2>
+<p><em>Ну как видно она уже создана на 2-ой лаб.</em></p>
+<figure id="fig:001">
+<img data-src="image/01.png" style="width:70.0%"
+alt="Создание нового пользователя" />
+<figcaption aria-hidden="true">Создание нового пользователя</figcaption>
+</figure>
+</section>
+<section
+id="задал-пароль-для-пользователя-guest-использую-учётную-запись-администратора-на-2-ой-лаб--passwd-guest--рис.--fig002."
+class="slide level2">
+<h2>Задал пароль для пользователя guest (использую учётную запись
+администратора) на 2-ой лаб: -passwd guest- (рис. <span class="citation"
+data-cites="fig:002">[-@fig:002]</span>).</h2>
+<figure id="fig:002">
+<img data-src="image/02.png" style="width:70.0%"
+alt="Введение пароля" />
+<figcaption aria-hidden="true">Введение пароля</figcaption>
+</figure>
+</section>
+<section
+id="аналогично-создал-второго-пользователя-guest2-рис.--fig003."
+class="slide level2">
+<h2>Аналогично создал второго пользователя guest2 (рис. <span
+class="citation" data-cites="fig:003">[-@fig:003]</span>).</h2>
+<figure id="fig:003">
+<img data-src="image/03.png" style="width:70.0%"
+alt="Создание пользователя guest2" />
+<figcaption aria-hidden="true">Создание пользователя guest2</figcaption>
+</figure>
+</section>
+<section id="добавил-пользователя-guest2-в-группу-guest"
+class="slide level2">
+<h2>Добавил пользователя <strong>guest2</strong> в группу
+<strong>guest</strong>:</h2>
+<p><em>gpasswd -a guest2 guest</em> (рис. <span class="citation"
+data-cites="fig:004">[-@fig:004]</span>).</p>
+<figure id="fig:004">
+<img data-src="image/04.png" style="width:70.0%"
+alt="Добавление пользователя guest2 в группу guest" />
+<figcaption aria-hidden="true">Добавление пользователя guest2 в группу
+guest</figcaption>
+</figure>
+</section>
+<section
+id="осуществил-вход-в-систему-от-двух-пользователей-на-двух-разных-консолях-guest-на-первой-консоли-и-guest2-на-второй-консоли-рис.--fig005."
+class="slide level2">
+<h2>Осуществил вход в систему от двух пользователей на двух разных
+консолях: guest на первой консоли и guest2 на второй консоли (рис. <span
+class="citation" data-cites="fig:005">[-@fig:005]</span>).</h2>
+<figure id="fig:005">
+<img data-src="image/05.png" style="width:70.0%"
+alt="Вход двух пользователя" />
+<figcaption aria-hidden="true">Вход двух пользователя</figcaption>
+</figure>
+</section>
+<section
+id="для-обоих-пользователей-командой-pwd-определил-директорию-в-которой-вы-находитесь.-сравнил-её-с-приглашениями-командной-строки-рис.--fig006."
+class="slide level2">
+<h2>Для обоих пользователей командой pwd определил директорию, в которой
+вы находитесь. Сравнил её с приглашениями командной строки (рис. <span
+class="citation" data-cites="fig:006">[-@fig:006]</span>).</h2>
+<figure id="fig:006">
+<img data-src="image/06.png" style="width:70.0%"
+alt="Определение директории" />
+<figcaption aria-hidden="true">Определение директории</figcaption>
+</figure>
+</section>
+<section
+id="уточнил-имя-вашего-пользователя-его-группу-кто-входит-в-неё-и-к-каким-группам-принадлежит-он-сам.-определил-командами-groups-guest-и-groups-guest2-в-какие-группы-входят-пользователи-guest-и-guest2.-сравнил-вывод-команды-groups-с-выводом-команд-id--gn-и-id--g-рис.--fig007."
+class="slide level2">
+<h2>Уточнил имя вашего пользователя, его группу, кто входит в неё и к
+каким группам принадлежит он сам. Определил командами <em>groups guest и
+groups guest2</em>, в какие группы входят пользователи guest и guest2.
+Сравнил вывод команды groups с выводом команд <em>id -Gn и id -G</em>
+(рис. <span class="citation"
+data-cites="fig:007">[-@fig:007]</span>).</h2>
+<figure id="fig:007">
+<img data-src="image/07.png" style="width:70.0%"
+alt="Уточнение имени пользователя" />
+<figcaption aria-hidden="true">Уточнение имени пользователя</figcaption>
+</figure>
+</section>
+<section
+id="сравнил-полученную-информацию-с-содержимым-файла-etcgroup.-просмотрил-файл-командой-cat-etcgroup-рис.--fig008-и-рис.--fig009."
+class="slide level2">
+<h2>Сравнил полученную информацию с содержимым файла /etc/group.
+Просмотрил файл командой <em>cat /etc/group</em> (рис. <span
+class="citation" data-cites="fig:008">[-@fig:008]</span>) и (рис. <span
+class="citation" data-cites="fig:009">[-@fig:009]</span>).</h2>
+<figure id="fig:008">
+<img data-src="image/08.png" style="width:70.0%"
+alt="Получение информации" />
+<figcaption aria-hidden="true">Получение информации</figcaption>
+</figure>
+<figure id="fig:009">
+<img data-src="image/09.png" style="width:70.0%"
+alt="Получение информации" />
+<figcaption aria-hidden="true">Получение информации</figcaption>
+</figure>
+</section>
+<section
+id="от-имени-пользователя-guest2-выполните-регистрацию-пользователя-guest2-в-группе-guest-командой-newgrp-guest-рис.--fig010."
+class="slide level2">
+<h2>От имени пользователя guest2 выполните регистрацию пользователя
+<strong>guest2</strong> в группе guest командой <em>newgrp guest</em>
+(рис. <span class="citation"
+data-cites="fig:010">[-@fig:010]</span>).</h2>
+<figure id="fig:010">
+<img data-src="image/10.png" style="width:70.0%"
+alt="Регистрация пользователя guest2 в группе guest" />
+<figcaption aria-hidden="true">Регистрация пользователя guest2 в группе
+guest</figcaption>
+</figure>
+</section>
+<section
+id="от-имени-пользователя-guest-изменил-права-директории-homeguest-разрешив-все-действия-для-пользователей-группы"
+class="slide level2">
+<h2>От имени пользователя guest изменил права директории /home/guest,
+разрешив все действия для пользователей группы:</h2>
+<p><em>chmod g+rwx /home/guest</em> (рис. <span class="citation"
+data-cites="fig:011">[-@fig:011]</span>).</p>
+<figure id="fig:011">
+<img data-src="image/11.png" style="width:70.0%" alt="Права доступа" />
+<figcaption aria-hidden="true">Права доступа</figcaption>
+</figure>
+</section>
+<section
+id="от-имени-пользователя-guest-снимил-с-директории-homeguestdir1-все-атрибуты-командой-chmod-000-dirl-рис.--fig012-и-рис.--fig013."
+class="slide level2">
+<h2>От имени пользователя guest снимил с директории
+<strong>/home/guest/dir1</strong> все атрибуты командой <em>chmod 000
+dirl</em> (рис. <span class="citation"
+data-cites="fig:012">[-@fig:012]</span>) и (рис. <span class="citation"
+data-cites="fig:013">[-@fig:013]</span>).</h2>
+<figure id="fig:012">
+<img data-src="image/12.png" style="width:70.0%" alt="Права доступа" />
+<figcaption aria-hidden="true">Права доступа</figcaption>
+</figure>
+<figure id="fig:013">
+<img data-src="image/13.png" style="width:70.0%" alt="Права доступа" />
+<figcaption aria-hidden="true">Права доступа</figcaption>
+</figure>
+</section>
+<section id="исходя-из-полученной-информации-была-заполнена-таблица."
+class="slide level2">
+<h2>Исходя из полученной информации, была заполнена таблица.</h2>
+<figure>
+<img data-src="image/image-1.png" alt="таблица_1" />
+<figcaption aria-hidden="true">таблица_1</figcaption>
+</figure>
+<figure>
+<img data-src="image/image-2.png" alt="таблица_2" />
+<figcaption aria-hidden="true">таблица_2</figcaption>
+</figure>
+<figure>
+<img data-src="image/image-3.png" alt="таблица_3" />
+<figcaption aria-hidden="true">таблица_3</figcaption>
+</figure>
+</section>
+<section
+id="минимальные-права-для-совершения-операций-от-имени-пользователей-входящих-в-группу."
+class="slide level2">
+<h2><em>Минимальные права для совершения операций от имени пользователей
+входящих в группу.</em></h2>
+<figure>
+<img data-src="image/image-4.png" alt="Минимальные права" />
+<figcaption aria-hidden="true">Минимальные права</figcaption>
+</figure>
+</section></section>
+<section>
+<section id="результаты" class="title-slide slide level1">
+<h1>Результаты</h1>
+
+</section>
+<section id="результаты-работы" class="slide level2">
+<h2>Результаты работы</h2>
+<ul>
+<li>Отточены навыки работы с атрибутами файлов</li>
+<li>Отточены знания об ограничении доступа в системах на базе Linux</li>
+<li>Выявлены минимальные права на директорию и на файл для разных
+операций</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="./reveal.js-4.1.0/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="./reveal.js-4.1.0/plugin/notes/notes.js"></script>
+  <script src="./reveal.js-4.1.0/plugin/search/search.js"></script>
+  <script src="./reveal.js-4.1.0/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'convex',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
