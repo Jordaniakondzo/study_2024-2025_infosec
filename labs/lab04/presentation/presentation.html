@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Акондзо Жордани Лади Гаэл.">
+  <title>Презентация по лабораторной работе №4</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/reset.css">
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/theme/sky.css" id="theme">
+  
+  
+  <span class="citation"
+  data-cites="ignorenonframefalse">@ignorenonframefalse</span>
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Презентация по лабораторной работе №4</h1>
+  <p class="subtitle">Информационная безопасность</p>
+  <p class="author">Акондзо Жордани Лади Гаэл.</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+  <p class="date">26 сентября 2024</p>
+</section>
+
+<section>
+<section id="информация" class="title-slide slide level1">
+<h1>Информация</h1>
+
+</section>
+<section id="докладчик" class="slide level2">
+<h2>Докладчик</h2>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Акондзо Жордани Лади Гаэл.</li>
+<li>студент 4-го курса группы НКНбд-01-21</li>
+<li>1032215649</li>
+<li>Российский университет дружбы народов</li>
+<li><a href="https://github.com/Jordaniakondzo">GitHub</a></li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section id="вводная-часть" class="title-slide slide level1">
+<h1>Вводная часть</h1>
+
+</section>
+<section id="актуальность" class="slide level2">
+<h2>Актуальность</h2>
+<ul>
+<li>Обеспечение безопасности</li>
+<li>Предотвращение пересечений между пользовательскими аккаунтами</li>
+<li>Совместный доступ к файлам</li>
+</ul>
+</section>
+<section id="цели-и-задачи" class="slide level2">
+<h2>Цели и задачи</h2>
+<ul>
+<li>Закрепление практических навыков работы в консоли с атрибутами
+файлов</li>
+<li>Закрепление теоретических основ дискреционного разграничения доступа
+в современных системах с открытым кодом на базе ОС Linux</li>
+</ul>
+</section>
+<section id="материалы-и-методы" class="slide level2">
+<h2>Материалы и методы</h2>
+<ul>
+<li>Веб-сервис <code>GitHub</code> для работы с репозиториями</li>
+<li>Программа для виртуализации ОС <code>VirtualBox</code></li>
+<li>Процессор <code>pandoc</code> для входного формата Markdown</li>
+<li>Результирующие форматы
+<ul>
+<li><code>pdf</code></li>
+<li><code>docx</code></li>
+</ul></li>
+<li>Автоматизация процесса создания: <code>Makefile</code></li>
+</ul>
+</section></section>
+<section>
+<section id="выполнение-лабораторной-работы"
+class="title-slide slide level1">
+<h1>Выполнение лабораторной работы</h1>
+
+</section>
+<section id="проверка-расширенных-атрибутов-файла" class="slide level2">
+<h2>Проверка расширенных атрибутов файла:</h2>
+<ul>
+<li>От имени пользователя <strong>guest</strong> определил расширенные
+атрибуты файла командой <em>/home/guest/dir1/file1</em>.</li>
+</ul>
+<p><img data-src="image/01.png" /></p>
+</section>
+<section id="изменение-прав-доступа-к-файлу" class="slide level2">
+<h2>Изменение прав доступа к файлу:</h2>
+<ul>
+<li>Установил права доступа на файл <strong>file1</strong>, разрешающие
+чтение и запись только для владельца:</li>
+</ul>
+<p><img data-src="image/02.png" /></p>
+</section>
+<section id="попытка-установки-атрибута-a-от-имени-пользователя-guest"
+class="slide level2">
+<h2>Попытка установки атрибута <code>a</code> от имени пользователя
+guest:</h2>
+<ul>
+<li>Попробовал установить атрибут <code>a</code> (добавление только) для
+файла от имени пользователя <strong>guest:</strong></li>
+</ul>
+<p><img data-src="image/03.png" /></p>
+<ul>
+<li>Ожидается отказ в выполнении операции, так как требуются права
+администратора.</li>
+</ul>
+</section>
+<section id="установка-атрибута-a-с-правами-администратора"
+class="slide level2">
+<h2>Установка атрибута <code>a</code> с правами администратора:</h2>
+<ul>
+<li>Повышаем привилегии с помощью команды <code>su</code> и
+устанавливаем атрибут a для файла:</li>
+</ul>
+<p><img data-src="image/04.png" /></p>
+</section>
+<section id="проверка-атрибута" class="slide level2">
+<h2>Проверка атрибута:</h2>
+<ul>
+<li>Проверил, что атрибут был установлен успешно:</li>
+</ul>
+<p><img data-src="image/05.png" /></p>
+</section>
+<section id="добавление-данных-в-файл" class="slide level2">
+<h2>Добавление данных в файл:</h2>
+<ul>
+<li>Выполнил дозапись в файл <strong>file1</strong> слова
+<em>“test”</em>:</li>
+<li>Прочитат файл и убеделся, что данные были успешно добавлены с
+помощью командой <em><code>cat /home/guest/dir1/file1</code></em>:</li>
+</ul>
+<p><img data-src="image/06.png" /></p>
+</section>
+<section id="попытка-удаления-или-перезаписи-файла"
+class="slide level2">
+<h2>Попытка удаления или перезаписи файла:</h2>
+<ul>
+<li>Попробовал удалить файл, перезаписать его или переименовать:</li>
+</ul>
+<p><img data-src="image/07.png" /></p>
+</section>
+<section id="изменение-прав-доступа-к-файлу-1" class="slide level2">
+<h2>Изменение прав доступа к файлу:</h2>
+<ul>
+<li>Попробовал изменить права доступа к файлу с помощью команды:</li>
+</ul>
+<p><img data-src="image/08.png" /></p>
+<ul>
+<li>Не удалось выполнить команду с установленным атрибутом
+<code>a.</code></li>
+</ul>
+</section>
+<section id="снятие-атрибута-aappend-only" class="slide level2">
+<h2>Снятие атрибута <code>a</code>(append-only):</h2>
+<ul>
+<li>От имени суперпользователя снимил атрибут <code>a</code> с
+файла:</li>
+</ul>
+<p><img data-src="image/09.png" /></p>
+<ul>
+<li>Повторил операции, которые не удавалось выполнить ранее, и занесил
+результаты в отчёт.</li>
+</ul>
+<p><img data-src="image/10.png" /></p>
+</section>
+<section id="установка-атрибута-i-immutable" class="slide level2">
+<h2>Установка атрибута <code>i</code> (immutable):</h2>
+<ul>
+<li>Повторите предыдущие действия, но замените атрибут a на атрибут
+<code>i</code>, который делает файл неизменяемым.</li>
+<li>Попробуйте дозаписать данные, удалить или переименовать файл.
+Ожидается, что операции будут заблокированы.</li>
+<li>Снимите атрибут <code>i</code>, чтобы вернуть возможность изменения
+файла.</li>
+</ul>
+<p><img data-src="image/11.png" /></p>
+</section></section>
+<section id="выводы" class="title-slide slide level1">
+<h1>Выводы</h1>
+<p>В ходе выполнения данной лабораторной работы я изучил работу с
+расширенными атрибутами файлов в ОС Linux, такими как <code>a</code>
+<strong>(добавление только)</strong> и <code>i</code>
+<strong>(неизменяемый)</strong>. Узнал, как эти атрибуты влияют на
+возможности изменения файлов и применяются для усиления безопасности в
+системах Linux.</p>
+</section>
+    </div>
+  </div>
+
+  <script src="./reveal.js-4.1.0/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="./reveal.js-4.1.0/plugin/notes/notes.js"></script>
+  <script src="./reveal.js-4.1.0/plugin/search/search.js"></script>
+  <script src="./reveal.js-4.1.0/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'convex',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
