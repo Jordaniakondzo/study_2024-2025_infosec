@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Акондзо Жордани Лади Гаэл.">
+  <title>Презентация по лабораторной работе №6</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/reset.css">
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/theme/sky.css" id="theme">
+  
+  
+  <span class="citation"
+  data-cites="ignorenonframefalse">@ignorenonframefalse</span>
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Презентация по лабораторной работе №6</h1>
+  <p class="subtitle">Информационная безопасность</p>
+  <p class="author">Акондзо Жордани Лади Гаэл.</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+  <p class="date">12 Октября 2024</p>
+</section>
+
+<section>
+<section id="информация" class="title-slide slide level1">
+<h1>Информация</h1>
+
+</section>
+<section id="докладчик" class="slide level2">
+<h2>Докладчик</h2>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Акондзо Жордани Лади Гаэл.</li>
+<li>студент 4-го курса группы НКНбд-01-21</li>
+<li>1032215649</li>
+<li>Российский университет дружбы народов</li>
+<li><a href="https://github.com/Jordaniakondzo">GitHub</a></li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section id="вводная-часть" class="title-slide slide level1">
+<h1>Вводная часть</h1>
+
+</section>
+<section id="актуальность" class="slide level2">
+<h2>Актуальность</h2>
+<ul>
+<li>Обеспечение безопасности</li>
+<li>Предотвращение пересечений между пользовательскими аккаунтами</li>
+<li>Совместный доступ к файлам</li>
+</ul>
+</section></section>
+<section id="цель-работы" class="title-slide slide level1">
+<h1>Цель работы</h1>
+<p>Цель данной лабораторной работы — развить навыки администрирования в
+операционной системе Linux с акцентом на использование технологии
+SELinux. Основное внимание уделено настройке SELinux для работы с
+веб-сервером Apache, что позволяет на практике проверить ограничения
+прав доступа.</p>
+</section>
+
+<section>
+<section id="теоретическое-введение" class="title-slide slide level1">
+<h1>Теоретическое введение</h1>
+
+</section>
+<section id="подготовка-стенда" class="slide level2">
+<h2>Подготовка стенда</h2>
+<p>Для выполнения лабораторной работы использовался дистрибутив Linux с
+включённой политикой SELinux targeted и режимом enforcing. В качестве
+веб-сервера использовался Apache, который был настроен для работы на
+портах 80 и 81. Важно было убедиться, что iptables настроен корректно и
+не блокирует доступ к данным портам.</p>
+</section>
+<section id="материалы-и-методы" class="slide level2">
+<h2>Материалы и методы</h2>
+<ul>
+<li>Веб-сервис <code>GitHub</code> для работы с репозиториями</li>
+<li>Программа для виртуализации ОС <code>VirtualBox</code></li>
+<li>Процессор <code>pandoc</code> для входного формата Markdown</li>
+<li>Результирующие форматы
+<ul>
+<li><code>pdf</code></li>
+<li><code>docx</code></li>
+</ul></li>
+<li>Автоматизация процесса создания: <code>Makefile</code></li>
+</ul>
+</section></section>
+<section>
+<section id="выполнение-лабораторной-работы"
+class="title-slide slide level1">
+<h1>Выполнение лабораторной работы</h1>
+
+</section>
+<section id="проверка-статуса-selinux" class="slide level2">
+<h2>Проверка статуса SELinux</h2>
+<p><img data-src="image/01.png" /></p>
+<p><em>Результат показал, что система настроена корректно для выполнения
+лабораторной работы.</em></p>
+</section>
+<section id="настройка-веб-сервера-apache" class="slide level2">
+<h2>Настройка веб-сервера Apache</h2>
+<p><img data-src="image/02.png" /></p>
+</section>
+<section id="проверка-контекста-selinux-для-apache"
+class="slide level2">
+<h2>Проверка контекста SELinux для Apache</h2>
+<p><img data-src="image/03.png" /></p>
+<p><em>Эта команда показала, что процессы Apache работают с контекстом
+httpd_t, что позволяет серверу правильно обрабатывать
+веб-запросы.</em></p>
+</section>
+<section id="проверка-текущих-настроек-selinux-для-apache"
+class="slide level2">
+<h2>Проверка текущих настроек SELinux для Apache</h2>
+<p><img data-src="image/04.png" /></p>
+<p><em>Это позволило мне увидеть, какие функции включены для
+Apache.</em></p>
+</section>
+<section id="анализ-политик-и-типов-selinux" class="slide level2">
+<h2>Анализ политик и типов SELinux</h2>
+<p><img data-src="image/05.png" /></p>
+<p><img data-src="image/06.png" /></p>
+<p><em>Это позволило мне получить полную картину того, как SELinux
+управляет доступом для Apache.</em></p>
+</section>
+<section
+id="определение-типа-файлов-и-поддиректорий-находящихся-в-директории-varwww-с-помощью-команды"
+class="slide level2">
+<h2>Определение типа файлов и поддиректорий, находящихся в директории
+<code>/var/www</code>, с помощью команды:</h2>
+<p><img data-src="image/07.png" /></p>
+</section>
+<section
+id="определение-типа-файлов-находящихся-в-директории-varwwwhtml"
+class="slide level2">
+<h2>Определение типа файлов, находящихся в директории
+`<code>/var/www/html</code>:</h2>
+<p><img data-src="image/08.png" /></p>
+</section>
+<section id="определение-круга-пользователей" class="slide level2">
+<h2>Определение круга пользователей</h2>
+<p><img data-src="image/09.png" /></p>
+</section>
+<section id="создание-тестового-файла-и-проверка-доступа"
+class="slide level2">
+<h2>Создание тестового файла и проверка доступа</h2>
+<p><img data-src="image/10.png" /> <img data-src="image/11.png" /></p>
+</section>
+<section id="проверка-контекста-созданного-файла" class="slide level2">
+<h2>Проверка контекста созданного файла</h2>
+<p><img data-src="image/12.png" /></p>
+<p><em>Контекст был установлен как httpd_sys_content_t, что позволило
+серверу Apache получить доступ к файлу через браузер.</em></p>
+</section>
+<section id="тестирование-работы-веб-сервера" class="slide level2">
+<h2>Тестирование работы веб-сервера</h2>
+<p><img data-src="image/13.png" /></p>
+<p><em>Файл успешно отобразился, что подтвердило правильность настроек
+SELinux для данного файла.</em></p>
+</section>
+<section id="анализ-контекста-файлов" class="slide level2">
+<h2>Анализ контекста файлов</h2>
+<p><img data-src="image/14.png" /></p>
+</section>
+<section id="изменение-контекста-безопасности" class="slide level2">
+<h2>Изменение контекста безопасности</h2>
+<p><img data-src="image/15.png" /></p>
+</section>
+<section id="проверка-блокировки-доступа" class="slide level2">
+<h2>Проверка блокировки доступа</h2>
+<p><img data-src="image/16.png" /></p>
+<p><em>После этого проверил, что контекст поменялся.</em></p>
+</section>
+<section id="анализ-ситуаций" class="slide level2">
+<h2>Анализ ситуаций</h2>
+<p><img data-src="image/17.png" /></p>
+<p><em>Анализ логов не выявил ошибок или предупреждений, связанных с
+перезапуском сервера.</em></p>
+</section>
+<section id="замение-порта-80-на-81-для-apache-в-selinux"
+class="slide level2">
+<h2>Замение порта 80 на 81 для Apache в SELinux</h2>
+<p><img data-src="image/18.png" /></p>
+</section>
+<section id="перезапуск-веб-сервера-apache" class="slide level2">
+<h2>Перезапуск веб-сервера Apache</h2>
+<p><img data-src="image/19.png" /></p>
+<p><em>При перезапуске не возникло никаких сбоев, что подтвердило
+корректность конфигурации.</em></p>
+</section>
+<section id="анализ-лог-файлов" class="slide level2">
+<h2>Анализ лог-файлов</h2>
+<p><img data-src="image/20.png" /></p>
+</section>
+<section id="добавление-порта-81-для-apache-в-selinux"
+class="slide level2">
+<h2>Добавление порта 81 для Apache в SELinux</h2>
+<p><img data-src="image/21.png" /></p>
+<p><em>Это позволило серверу Apache работать на порту 81.</em></p>
+</section>
+<section id="проверка-списка-портов" class="slide level2">
+<h2>Проверка списка портов</h2>
+<p><img data-src="image/22.png" /></p>
+<p><em>В выводе я увидел, что порты 80 и 81 доступны для
+Apache.</em></p>
+</section>
+<section id="перезапуск-apache" class="slide level2">
+<h2>Перезапуск Apache</h2>
+<p><em>Файл <strong>test.html</strong> успешно отобразился, что
+подтвердило работу Apache на новом порту 81.</em></p>
+<p><img data-src="image/23.png" /></p>
+</section>
+<section
+id="вернул-контекст-httpd_sys_cоntent__t-к-файлу-varwwwhtml-test.html"
+class="slide level2">
+<h2>Вернул контекст <code>httpd_sys_cоntent__t</code> к файлу
+<strong>/var/www/html/ test.html</strong>:</h2>
+<p><img data-src="image/24.png" /></p>
+</section>
+<section id="удаление-привязки-порта-81-к-apache" class="slide level2">
+<h2>Удаление привязки порта 81 к Apache</h2>
+<p><img data-src="image/25.png" id="fig:025" style="width:70.0%" /></p>
+</section>
+<section id="удаление-тестового-файла" class="slide level2">
+<h2>Удаление тестового файла</h2>
+<p><img data-src="image/26.png" /></p>
+</section></section>
+<section id="выводы" class="title-slide slide level1">
+<h1>Выводы</h1>
+<p>В ходе лабораторной работы я приобрел практические навыки работы с
+SELinux в связке с веб-сервером Apache. Я научился настраивать контексты
+безопасности для файлов и управлять портами, используя SELinux для
+обеспечения мандатного контроля доступа. Работая с различными
+контекстами, такими как httpd_sys_content_t и samba_share_t, я увидел,
+как SELinux блокирует несанкционированный доступ, что помогает
+значительно повысить безопасность системы.</p>
+</section>
+    </div>
+  </div>
+
+  <script src="./reveal.js-4.1.0/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="./reveal.js-4.1.0/plugin/notes/notes.js"></script>
+  <script src="./reveal.js-4.1.0/plugin/search/search.js"></script>
+  <script src="./reveal.js-4.1.0/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'convex',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
