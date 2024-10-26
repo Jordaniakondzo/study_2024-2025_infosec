@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Акондзо Жордани Лади Гаэл.">
+  <title>Презентация по лабораторной работе №8</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/reset.css">
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="./reveal.js-4.1.0/dist/theme/sky.css" id="theme">
+  
+  
+  <span class="citation"
+  data-cites="ignorenonframefalse">@ignorenonframefalse</span>
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Презентация по лабораторной работе №8</h1>
+  <p class="subtitle">Информационная безопасность</p>
+  <p class="author">Акондзо Жордани Лади Гаэл.</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+  <p class="date">26 Октября 2024</p>
+</section>
+
+<section>
+<section id="информация" class="title-slide slide level1">
+<h1>Информация</h1>
+
+</section>
+<section id="докладчик" class="slide level2">
+<h2>Докладчик</h2>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Акондзо Жордани Лади Гаэл.</li>
+<li>студент 4-го курса группы НКНбд-01-21</li>
+<li>1032215649</li>
+<li>Российский университет дружбы народов</li>
+<li><a href="https://github.com/Jordaniakondzo">GitHub</a></li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section id="вводная-часть" class="title-slide slide level1">
+<h1>Вводная часть</h1>
+
+</section>
+<section id="актуальность" class="slide level2">
+<h2>Актуальность</h2>
+<ul>
+<li>Обеспечение безопасности</li>
+<li>Предотвращение пересечений между пользовательскими аккаунтами</li>
+<li>Совместный доступ к файлам</li>
+</ul>
+</section></section>
+<section id="цель-работы" class="title-slide slide level1">
+<h1>Цель работы</h1>
+<p>Цель данной лабораторной работы — исследование метода шифрования с
+использованием одной ключевой гаммы для двух сообщений. Основной акцент
+делается на изучении уязвимостей, связанных с повторным использованием
+одной и той же ключевой гаммы, а также на рассмотрении методов,
+позволяющих избежать этих уязвимостей. В ходе лабораторной работы
+рассматриваются два варианта шифрования и анализируются причины, по
+которым один из них оказался неудачным.</p>
+</section>
+
+<section>
+<section id="теоретическое-введение" class="title-slide slide level1">
+<h1>Теоретическое введение</h1>
+<p>Шифрование с использованием гаммы или гаммирование — это метод
+симметричного шифрования, где открытый текст преобразуется с помощью
+ключа и операции XOR (исключающее ИЛИ). Такой подход позволяет достичь
+высокой степени безопасности, при условии, что ключ имеет достаточную
+длину и используется только один раз.</p>
+<p>Метод гаммирования обладает следующими свойствами:</p>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<ul>
+<li><p>Операция XOR выполняется побитно между каждым символом открытого
+текста и ключа.</p></li>
+<li><p>Уникальность ключа — ключ должен использоваться только для одного
+сообщения, чтобы обеспечить стойкость шифра.</p></li>
+<li><p>Длина ключа должна совпадать с длиной сообщения, чтобы избежать
+утечки информации.</p></li>
+</ul>
+<p>Если ключ используется повторно для нескольких сообщений, возникает
+риск компрометации, так как злоумышленник может восстановить одно из
+сообщений, если ему известен другой текст или его часть.</p>
+</section>
+<section id="материалы-и-методы" class="slide level2">
+<h2>Материалы и методы</h2>
+<ul>
+<li>Веб-сервис <code>GitHub</code> для работы с репозиториями</li>
+<li>Программа для виртуализации ОС <code>VirtualBox</code></li>
+<li>Процессор <code>pandoc</code> для входного формата Markdown</li>
+<li>Результирующие форматы
+<ul>
+<li><code>pdf</code></li>
+<li><code>docx</code></li>
+</ul></li>
+<li>Автоматизация процесса создания: <code>Makefile</code></li>
+</ul>
+</section></section>
+<section>
+<section id="выполнение-лабораторной-работы"
+class="title-slide slide level1">
+<h1>Выполнение лабораторной работы</h1>
+
+</section>
+<section
+id="первоначальный-эксперимент-ошибка-использования-короткого-ключа"
+class="slide level2">
+<h2>Первоначальный эксперимент: ошибка использования короткого
+ключа</h2>
+<p>На начальном этапе лабораторной работы был проведен эксперимент с
+шифрованием двух сообщений с использованием одного ключа длиной 20 байт.
+Исходные данные были следующими:</p>
+<ul>
+<li><p>Сообщение P1: <code>«НаВашисходящийот1204»</code></p></li>
+<li><p>Сообщение P2: <code>«ВСеверныйфилиалБанка»</code></p></li>
+<li><p>Ключ K:
+<code>05 0C 17 7F 0E 4E 37 D2 94 10 09 2E 22 57 FF C8 0B B2 70 54</code>
+(20 байт)</p></li>
+</ul>
+</section>
+<section id="изображение" class="slide level2">
+<h2>Изображение</h2>
+<p><img data-src="image/01.png" /></p>
+</section>
+<section id="код" class="slide level2">
+<h2>Код</h2>
+<pre><code>import os
+
+def pad_message(message, length):
+    # Дополняет сообщение пробелами до заданной длины
+    return message.ljust(length)
+
+def xor_operation(data1, data2):
+    # Применяет операцию XOR между двумя байтами
+    return bytes([a ^ b for a, b in zip(data1, data2)])
+
+# Исходные данные
+P1 = &quot;НаВашисходящийот1204&quot;.encode(&#39;utf-8&#39;)
+P2 = &quot;ВСеверныйфилиалБанка&quot;.encode(&#39;utf-8&#39;)
+
+# Приведение сообщений к одной длине
+max_length = max(len(P1), len(P2))
+P1_padded = pad_message(P1.decode(&#39;utf-8&#39;), max_length).encode(&#39;utf-8&#39;)
+P2_padded = pad_message(P2.decode(&#39;utf-8&#39;), max_length).encode(&#39;utf-8&#39;)
+
+# Генерация ключа длиной, равной максимальной длине сообщения
+K = os.urandom(max_length)
+
+# Шифрование P1 и P2
+C1 = xor_operation(P1_padded, K)
+C2 = xor_operation(P2_padded, K)
+
+# Вывод зашифрованных текстов
+print(&quot;Шифротекст C1:&quot;, C1.hex())
+print(&quot;Шифротекст C2:&quot;, C2.hex())
+
+# Определение текста P2, зная C1, C2 и P1
+P2_recovered_padded = xor_operation(xor_operation(C1, C2), P1_padded)
+
+# Конвертируем результат обратно в текст
+try:
+    P2_recovered = P2_recovered_padded.strip().decode(&#39;utf-8&#39;)
+    print(&quot;Восстановленный текст P2:&quot;, P2_recovered)
+except UnicodeDecodeError:
+    print(&quot;Ошибка декодирования: восстановленный текст не может быть корректно декодирован.&quot;)
+</code></pre>
+</section>
+<section id="ошибка-и-ее-последствия" class="slide level2">
+<h2>Ошибка и ее последствия</h2>
+<ul>
+<li>При выполнении операции шифрования обнаружилось, что ключ оказался
+короче сообщений, что привело к ошибке при попытке шифрования. В
+результате не удалось корректно зашифровать и восстановить сообщение P2,
+так как операция XOR не могла быть выполнена для всех символов обоих
+сообщений. Этот случай наглядно показал, что длина ключа должна
+соответствовать длине сообщения, чтобы обеспечить полное шифрование и
+корректное восстановление.</li>
+</ul>
+<pre><code>Шифротекст C1: d591c7cfdedce7624598d996f3d62e4ddb0ca0e0
+Шифротекст C2: d59ec7dedefbe76044a5d8aef2ea2e43db0ba1d0
+Восстановленный текст P2: ВСеверныйф</code></pre>
+</section>
+<section id="вывод" class="slide level2">
+<h2>Вывод</h2>
+<ul>
+<li>использование короткого ключа приводит к неполному шифрованию, что
+делает сообщение уязвимым и не позволяет восстановить его
+корректно.</li>
+</ul>
+</section>
+<section id="исправление-ошибки-генерация-ключа-достаточной-длины"
+class="slide level2">
+<h2>Исправление ошибки: генерация ключа достаточной длины</h2>
+<p>Для исправления ошибки было принято решение сгенерировать новый ключ
+той же длины, что и наиболее длинное из сообщений. Также были дополнены
+оба сообщения до одинаковой длины, чтобы гарантировать корректное
+выполнение операции XOR. Были выполнены следующие шаги:</p>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<ul>
+<li><p>Приведение сообщений к одной длине: Оба сообщения были дополнены
+пробелами до одинаковой длины, чтобы обеспечить возможность корректного
+шифрования.</p></li>
+<li><p>Генерация ключа: Ключ был сгенерирован случайным образом, с
+длиной, соответствующей длине сообщений. Это позволило гарантировать,
+что ключ будет достаточен для шифрования всех символов каждого
+сообщения.</p></li>
+</ul>
+</section>
+<section id="изображение-1" class="slide level2">
+<h2>Изображение</h2>
+<p><img data-src="image/02.png" /></p>
+</section>
+<section id="исправленный-код" class="slide level2">
+<h2>Исправленный код</h2>
+<pre><code>import os
+
+def pad_message(message, length):
+    # Дополняет сообщение пробелами до заданной длины
+    return message.ljust(length)
+
+def xor_operation(data1, data2):
+    # Применяет операцию XOR между двумя байтами
+    return bytes([a ^ b for a, b in zip(data1, data2)])
+
+# Исходные данные
+P1 = &quot;НаВашисходящийот1204&quot;.encode(&#39;utf-8&#39;)
+P2 = &quot;ВСеверныйфилиалБанка&quot;.encode(&#39;utf-8&#39;)
+
+# Приведение сообщений к одной длине
+max_length = max(len(P1), len(P2))
+P1_padded = pad_message(P1.decode(&#39;utf-8&#39;), max_length).encode(&#39;utf-8&#39;)
+P2_padded = pad_message(P2.decode(&#39;utf-8&#39;), max_length).encode(&#39;utf-8&#39;)
+
+# Генерация ключа длиной, равной максимальной длине сообщения
+K = os.urandom(max_length)
+
+# Шифрование P1 и P2
+C1 = xor_operation(P1_padded, K)
+C2 = xor_operation(P2_padded, K)
+
+# Вывод зашифрованных текстов
+print(&quot;Шифротекст C1:&quot;, C1.hex())
+print(&quot;Шифротекст C2:&quot;, C2.hex())
+
+# Определение текста P2, зная C1, C2 и P1
+P2_recovered_padded = xor_operation(xor_operation(C1, C2), P1_padded)
+
+# Конвертируем результат обратно в текст
+try:
+    P2_recovered = P2_recovered_padded.strip().decode(&#39;utf-8&#39;)
+    print(&quot;Восстановленный текст P2:&quot;, P2_recovered)
+except UnicodeDecodeError:
+    print(&quot;Ошибка декодирования: восстановленный текст не может быть корректно декодирован.&quot;)
+</code></pre>
+</section>
+<section id="результат" class="slide level2">
+<h2>Результат</h2>
+<ul>
+<li>В результате применения исправленного подхода были успешно
+зашифрованы и расшифрованы оба сообщения. Был сгенерирован ключ
+достаточной длины, и сообщения были дополнены до одинаковой длины, что
+обеспечило корректное выполнение операции XOR и успешное восстановление
+сообщения P2.</li>
+</ul>
+<pre><code>Шифротекст C1: a54875e1b41b805051df8a11be97b6f4f0e432a479a4cbd9cf4aeaff21926d957ccddb475d244394
+Шифротекст C2: a54775f0b43c805250e28b29bfabb6faf0e333947893caebcf4aeaf621976c869d4f3bceadbeb304
+Восстановленный текст P2: ВСеверныйфилиалБанка</code></pre>
+</section>
+<section id="анализ-и-выводы" class="slide level2">
+<h2>Анализ и выводы</h2>
+<p><strong>1. Анализ первого случая</strong></p>
+<ul>
+<li><p>Ошибка использования короткого ключа показала, что длина ключа
+является критически важным фактором для корректного шифрования и
+дешифрования.</p></li>
+<li><p>Риск повторного использования ключа: если ключ используется
+повторно для шифрования нескольких сообщений, это делает систему
+уязвимой к атакам, так как злоумышленник может использовать свойства XOR
+для восстановления оригинальных сообщений.</p></li>
+</ul>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p><strong>2. Исправленный подход</strong></p>
+<ul>
+<li><p>Генерация ключа достаточной длины и приведение сообщений к
+одинаковой длине позволили обеспечить безопасность и корректность
+процесса шифрования и дешифрования.</p></li>
+<li><p>Использование уникального ключа для каждого сообщения
+предотвращает возможность компрометации данных и повышает общую
+безопасность системы.</p></li>
+</ul>
+</section></section>
+<section id="заключение" class="title-slide slide level1">
+<h1>Заключение</h1>
+<p>Данная лабораторная работа продемонстрировала важность правильного
+выбора длины ключа и необходимость избегать повторного использования
+ключей при шифровании нескольких сообщений. В первом эксперименте
+ошибка, связанная с коротким ключом, привела к невозможности корректного
+восстановления сообщения, в то время как исправленный подход с
+генерацией нового ключа обеспечил успешное шифрование и
+дешифрование.</p>
+<p>В криптографии безопасность во многом зависит от правильного выбора
+параметров, таких как длина ключа, уникальность и надежность генерации.
+Результаты лабораторной работы подчеркивают необходимость соблюдения
+этих принципов для предотвращения уязвимостей и обеспечения надежной
+защиты данных.</p>
+</section>
+
+<section>
+<section id="контрольные-вопросы" class="title-slide slide level1">
+<h1>Контрольные вопросы</h1>
+<p><strong>1. Как, зная один из текстов (P1 или P2), определить другой,
+не зная при этом ключа?</strong> * Можно воспользоваться свойством
+операции XOR: если известны оба шифротекста <code>(C1 и C2)</code> и
+один из открытых текстов <code>(P1)</code>, то можно вычислить второй
+текст <code>(P2)</code> с помощью операции XOR:
+<code>P2 = C1 ⊕ C2 ⊕ P1.</code></p>
+<p><strong>2. Что будет при повторном использовании ключа при шифровании
+текста?</strong></p>
+<ul>
+<li>При повторном использовании одного и того же ключа для шифрования
+нескольких сообщений возникает риск, что злоумышленник сможет вычислить
+разницу между двумя шифротекстами и, зная один из оригинальных текстов,
+восстановить другой. Это делает систему уязвимой к атакам.</li>
+</ul>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<p><strong>3. Как реализуется режим шифрования однократного гаммирования
+одним ключом двух открытых текстов?</strong></p>
+<ul>
+<li>Оба открытых текста шифруются с использованием одной и той же
+ключевой гаммы и операции XOR. Однако такой подход приводит к
+уязвимостям, если ключ используется повторно, так как злоумышленник
+может воспользоваться свойствами XOR для восстановления одного из
+текстов.</li>
+</ul>
+<p><strong>4. Перечислите недостатки шифрования одним ключом двух
+открытых текстов.</strong></p>
+<ul>
+<li>Основной недостаток — уязвимость к атаке, при которой злоумышленник
+может вычислить один из открытых текстов, если известен другой. Также
+повторное использование ключа делает оба сообщения менее защищенными и
+повышает риск компрометации.</li>
+</ul>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p><strong>5. Перечислите преимущества шифрования одним ключом двух
+открытых текстов.</strong></p>
+<ul>
+<li>Единственное преимущество — простота и скорость шифрования, так как
+используется одна и та же операция XOR и ключ для обоих сообщений.
+Однако такое преимущество нивелируется значительными рисками
+безопасности.</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="./reveal.js-4.1.0/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="./reveal.js-4.1.0/plugin/notes/notes.js"></script>
+  <script src="./reveal.js-4.1.0/plugin/search/search.js"></script>
+  <script src="./reveal.js-4.1.0/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'convex',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
